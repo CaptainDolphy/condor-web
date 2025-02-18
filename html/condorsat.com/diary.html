@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Diary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: auto;
+            padding: 0;
+            background-color: #222;
+            color: #333;
+            overflow-y: visible;
+            overflow-x: hidden;
+            overscroll-behavior-y: contain;
+        }
+
+        header {
+            background-color: #005186;
+            color: white;
+            padding: 1rem 10rem;
+            padding-top: 4rem;
+            text-align: center;
+            z-index: 0;
+        }
+
+        #webpage-container {
+            background-color: #f4f4f9;
+            width: 100%;
+            height: 100%;
+        }
+
+        nav {
+            background-color: #333;
+            position: fixed;
+            width: 100%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
+            height: max-content;
+
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: #505050;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        #header-logo {
+            position: absolute;
+            left: 0rem;
+            top: 5rem;
+            margin-left: 1rem;
+            z-index: 1;
+        }
+
+        .entry {
+            margin-bottom: 2rem;
+        }
+
+        .entry h2 {
+            color: #005186;
+        }
+
+        .entry p {
+            margin: 0.5rem 0;
+        }
+
+        .entry time {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        video {
+            margin: auto;
+            width: 100%;
+        }
+
+        footer {
+            position: float;
+            text-align: center;
+            width: 100%;
+            bottom: 0px;
+            padding: 1rem;
+            margin-top: 2rem;
+            background-color: #222;
+            color: white;
+        }
+
+        #here {
+            background-color: #505050;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="webpage-container">
+        <nav>
+            <a href="index.html">Main Page</a>
+            <a id="here" href="diary.html">Development Logbook</a>
+        </nav>
+        <header>
+            <h1>Condor Logbook</h1>
+            <a href="index.html">
+                <img id="header-logo" src="./public/images/condor-logo-white.svg" width="120rem" height="80rem">
+            </a>
+        </header>
+        <main>
+            <section class="entry">
+                <h2>Entry 1: Discussion about the secondary mission</h2>
+                <time>13. 1. 2025</time>
+                <p>What we did:</p>
+                Brainstorming of ideas: <br>
+                <ul>
+                    <li>A cansat that would scan the Earth's surface and then using ai it would reconstruct it in 3D
+                    </li>
+                    <li>A cansat whos flight could be controlled and optionally it would scan the surface</li>
+                    <li>A cansat that would act as a rover after landing and could take pictures and explore the
+                        environment</li>
+                    <li>A cansat that would have a controlled and safe landing</li>
+                    <li>A cansat that would extend some wings to achieve a controlled flight</li>
+                </ul>
+
+                Outline of the approximate dates and things we need to do
+
+                </p>
+            </section>
+
+            <section class="entry">
+                <h2>Entry 2: Determining what our secondary mission will be</h2>
+                <time>15. 01. 2025</time>
+                <ul>
+                    <li>We chose to make a CanSat that will have a controlled flight using a ram-air parachute</li>
+                    <li>Proof of concept that such a small device/satellite can be controlled using only two servos and
+                        potentially one dc motor</li>
+                    <li>Further brainstorming of design</li>
+                </ul>
+            </section>
+
+            <section class="entry">
+                <h2>Entry 3: Getting more accustomed with the CanSat requirements and deadlines</h2>
+                <time>17. 01. 2025</time>
+                <ul>
+                    <li>We found out that there is a minimal descending speed (5 m/s) which slightly altered our design
+                    </li>
+                    <li>Discussion about picking parts, so that we meet the requirements for the first deadline</li>
+                    <li>
+                        We will also need to consider the protocol we want to use:
+                        <ul>
+                            <li>ELRS</li>
+                            <li>mLRS</li>
+                            <li>WiFi</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>We will need these parts: receiver, transmitter, flight controller, computer for ground station</p>
+            </section>
+
+            <section class="entry">
+                <h2>Entry 4: More specific identification of parts that we will use</h2>
+                <time>20. 01. 2025</time>
+                <p>Parts:</p>
+                <ul>
+                    <li>We determined that mLRS will be the ideal protocol for us since it meets all of our requirements
+                        (long distance, telemetry, rx transmission), and it is also quite well documented</li>
+                    <li>Receiver: Matek mR900-30 mLRS 868MHz RX</li>
+                    <li>Transmitter: Matek mR900-30-TX mLRS 868MHz TX Kit</li>
+                </ul>
+                <p>We also determined that we will use the raspberry pi 4 as the ground station:</p>
+                <ul>
+                    <li>Has the necessary computational power for our use case</li>
+                    <li>Has the pins that will be required to set up the transmission</li>
+                </ul>
+                <p>We still need to choose the flight controller</p>
+            </section>
+
+            <section class="entry">
+                <h2>Entry 5: Picking the SpeedyBee F405 Wing Mini</h2>
+                <time>21. 01. 2025</time>
+                <p>We chose the SpeedyBee F405 Wing Mini flight controller because:</p>
+                <ul>
+                    <li>It has a sufficient amount of output pins that will be necessary to control the servos</li>
+                    <li>It already has some built in sensors that we will need to use</li>
+                    <li>It has all of the needed connectors to connect our sensors (GPS, compass, temperature)</li>
+                    <li>It is in stock in the Czech Republic</li>
+                    <li>It is relatively compact</li>
+                </ul>
+                <p>Ordering of parts:</p>
+                <ul>
+                    <li>We ordered the: Matek mR900-30 mLRS 868MHz RX, Matek mR900-30-TX mLRS 868MHz TX Kit, SpeedyBee
+                        F405 Wing Mini</li>
+                </ul>
+                <p>Discussion about the publicity of our mission:</p>
+                <ul>
+                    <li>Setting up Instagram account <a
+                            href="https://www.instagram.com/condor_cansat/">@condor_cansat</a></li>
+                    <li>Setting up the website</li>
+                </ul>
+            </section>
+
+            <section class="entry">
+                <h2>Entry 6: Sketching the wiring diagram to determine the requirements for the flight controller</h2>
+                <time>22. 01. 2025</time>
+                <img src="./public/images/wiring.png" width="100%">
+            </section>
+
+            <section class="entry">
+                <h2>Entry 7: First assembly of parts to check compatibility</h2>
+                <time>25. 01. 2025</time>
+                <br>
+                <video width="640" height="480" controls>
+                    <source src="./public/videos/assembly.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Determining what antenna will we use on the ground station that meets these requirements:</p>
+                <ul>
+                    <li>Dipole antenna</li>
+                    <li>Directional: YAGI</li>
+                    <li>Operates within 900/868 MHz</li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <p>2025 Condor CanSat</p>
+        </footer>
+    </div>
+</body>
+
+<script>
+
+</script>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Development Diary</title>
+    <title>Our Project</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,12 +19,15 @@
         }
 
         header {
-            background-color: #005186;
+            background-color: transparent;
+            position: relative;
+            width: 100%;
+            height: fit-content;
             color: white;
             padding: 1rem 10rem;
             padding-top: 4rem;
             text-align: center;
-            z-index: 0;
+            z-index: 2;
         }
 
         #webpage-container {
@@ -67,29 +70,94 @@
             border-radius: 8px;
         }
 
-        #header-logo {
+        .container {
+            box-shadow: -5px 0px 15px rgba(45, 45, 45, 0.5);
+            max-width: 100%;
+            padding-top: 1px;
+            text-align: center;
+            background-color: white;
+            z-index: 3;
+            position: relative;
+            top: 0px;
+            height: 800px;
+            padding-bottom: 10vw;
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .member {
+            text-align: center;
+            width: 25%;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        .text {
+            text-align: left;
+            padding: 3vw;
+            padding-left: 20vw;
+            padding-right: 20vw;
+            font-size: large;
+        }
+
+        #earth-bg {
+            top: 0px;
             position: absolute;
-            left: 0rem;
-            top: 5rem;
-            margin-left: 1rem;
             z-index: 1;
         }
 
-        .entry {
-            margin-bottom: 2rem;
+        #main-logo-container {
+            width: 100%;
+            display: flex;
+            height: fit-content;
+            align-items: center;
         }
 
-        .entry h2 {
-            color: #005186;
+        #header-logo {
+            top: 20px;
+            position: relative;
+            left: -30px;
+            z-index: 10;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 5;
         }
 
-        .entry p {
-            margin: 0.5rem 0;
+        .text-left {
+            text-align: left;
         }
 
-        .entry time {
-            font-size: 0.9rem;
-            color: #666;
+        #title-line {
+            width: 110%;
+            height: 1px;
+            position: relative;
+            top: -5px;
+            left: -110%;
+            background-color: #005186;
+            opacity: 0%;
+
+            animation: strech 2s ease-out infinite;
+
+            animation-play-state: paused;
+            animation-delay: calc(var(--scroll) * -2s);
+        }
+
+        @keyframes strech {
+            30% {
+                opacity: 100%;
+                height: 5px;
+            }
+
+            100% {
+                transform: translateX(100%);
+                opacity: 100%;
+                height: 3px;
+            }
         }
 
         footer {
@@ -98,9 +166,13 @@
             width: 100%;
             bottom: 0px;
             padding: 1rem;
-            margin-top: 2rem;
+            margin-top: 0;
             background-color: #222;
             color: white;
+        }
+
+        #here {
+            background-color: #505050;
         }
     </style>
 </head>
@@ -108,132 +180,111 @@
 <body>
     <div id="webpage-container">
         <nav>
-            <a href="index.html">Development Diary</a>
-            <!-- Add more links as needed -->
+            <a id="here" href="index.html">Main Page</a>
+            <a href="diary.html">Development Logbook</a>
         </nav>
-        <header>
-            <h1>Condor Development Diary</h1>
-            <img id="header-logo" src="./public/images/condor-logo-white.png" width="120rem" height="80rem">
-        </header>
-        <main>
-            <section class="entry">
-                <h2>Entry 1: Discussion about the secondary mission</h2>
-                <time>13. 1. 2025</time>
-                <p>What we did:</p>
-                Brainstorming of ideas: <br>
-                <ul>
-                    <li>A cansat that would scan the Earth's surface and then using ai it would reconstruct it in 3D
-                    </li>
-                    <li>A cansat whos flight could be controlled and optionally it would scan the surface</li>
-                    <li>A cansat that would act as a rover after landing and could take pictures and explore the
-                        environment</li>
-                    <li>A cansat that would have a controlled and safe landing</li>
-                    <li>A cansat that would extend some wings to achieve a controlled flight</li>
-                </ul>
-
-                Outline of the approximate dates and things we need to do
-
+        <img id="earth-bg" src="./public/images/earth.jpg" alt="earth" width="100%">
+        <div id="main-logo-container">
+            <img id="header-logo" src="./public/images/condor-logo-white-red.svg" width="80%">
+        </div>
+        <div id="container" class="container">
+            <h1>Location Independent and Modular Satellite</h1>
+            <div id="title-line"></div>
+            <div class="text">
+                <p>
+                    As a passionate group of friends interested in various areas of scientific research and
+                    development ranging from
+                    engineering to biochemistry, we decided to challenge our current knowledge and put ourselves in the
+                    position to gain
+                    valuable hands-on experience from our fields.
                 </p>
-            </section>
-
-            <section class="entry">
-                <h2>Entry 2: Determining what our secondary mission will be</h2>
-                <time>15. 01. 2025</time>
-                <ul>
-                    <li>We chose to make a CanSat that will have a controlled flight using a ram-air parachute</li>
-                    <li>Proof of concept that such a small device/satellite can be controlled using only two servos and
-                        potentially one dc motor</li>
-                    <li>Further brainstorming of design</li>
-                </ul>
-            </section>
-
-            <section class="entry">
-                <h2>Entry 3: Getting more accustomed with the CanSat requirements and deadlines</h2>
-                <time>17. 01. 2025</time>
-                <ul>
-                    <li>We found out that there is a minimal descending speed (5 m/s) which slightly altered our design
-                    </li>
-                    <li>Discussion about picking parts, so that we meet the requirements for the first deadline</li>
-                    <li>
-                        We will also need to consider the protocol we want to use:
-                        <ul>
-                            <li>ELRS</li>
-                            <li>mLRS</li>
-                            <li>WiFi</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p>We will need these parts: receiver, transmitter, flight controller, computer for ground station</p>
-            </section>
-
-            <section class="entry">
-                <h2>Entry 4: More specific identification of parts that we will use</h2>
-                <time>20. 01. 2025</time>
-                <p>Parts:</p>
-                <ul>
-                    <li>We determined that mLRS will be the ideal protocol for us since it meets all of our requirements
-                        (long distance, telemetry, rx transmission), and it is also quite well documented</li>
-                    <li>Receiver: Matek mR900-30 mLRS 868MHz RX</li>
-                    <li>Transmitter: Matek mR900-30-TX mLRS 868MHz TX Kit</li>
-                </ul>
-                <p>We also determined that we will use the raspberry pi 4 as the ground station:</p>
-                <ul>
-                    <li>Has the necessary computational power for our use case</li>
-                    <li>Has the pins that will be required to set up the transmission</li>
-                </ul>
-                <p>We still need to choose the flight controller</p>
-            </section>
-
-            <section class="entry">
-                <h2>Entry 5: Picking the SpeedyBee F405 Wing Mini</h2>
-                <time>21. 01. 2025</time>
-                <p>We chose the SpeedyBee F405 Wing Mini flight controller because:</p>
-                <ul>
-                    <li>It has a sufficient amount of output pins that will be necessary to control the servos</li>
-                    <li>It already has some built in sensors that we will need to use</li>
-                    <li>It has all of the needed connectors to connect our sensors (GPS, compass, temperature)</li>
-                    <li>It is in stock in the Czech Republic</li>
-                    <li>It is relatively compact</li>
-                </ul>
-                <p>Ordering of parts:</p>
-                <ul>
-                    <li>We ordered the: Matek mR900-30 mLRS 868MHz RX, Matek mR900-30-TX mLRS 868MHz TX Kit, SpeedyBee
-                        F405 Wing Mini</li>
-                </ul>
-                <p>Discussion about the publicity of our mission:</p>
-                <ul>
-                    <li>Setting up Instagram account <a
-                            href="https://www.instagram.com/condor_cansat/">@condor_cansat</a></li>
-                    <li>Setting up the website</li>
-                </ul>
-            </section>
-
-            <section class="entry">
-                <h2>Entry 6: Sketching the wiring diagram to determine the requirements for the flight controller</h2>
-                <time>22. 01. 2025</time>
-                <img src="./public/images/wiring.png" width="100%">
-            </section>
-
-            <section class="entry">
-                <h2>Entry 7: First assembly of parts to check compatibility</h2>
-                <time>25. 01. 2025</time>
-                <p>$$$$$$$$$$$$$$$$$$$ add the assembly video $$$$$$$$$$$$$$$$$$$</p>
-                <p>Determining what antenna will we use on the ground station that meets these requirements:</p>
-                <ul>
-                    <li>Dipole antenna</li>
-                    <li>Directional: YAGI</li>
-                    <li>Operates within 900/868 MHz</li>
-                </ul>
-            </section>
-        </main>
+                <p>
+                    The main goals for this year's CanSAT competition are compiled from an ever-changing list of ideas
+                    we
+                    ponder
+                    upon. We would like to mention the ones we deemed the most useful, interesting or achievable in the
+                    time
+                    allocated.
+                    Our picks so far are to:
+                </p>
+            </div>
+            <div class="team">
+                <div class="member">
+                    <h3>1.</h3>
+                    <h3>Achieve Full Location Controll of the CanSat</h3>
+                    <div class="text-left">
+                        <p>Using wings to controll the satelite is not feasible within the size restrictions.
+                            This issue can be combated by using the parachute to gain control over the satellite, the
+                            user should be
+                            able to easily pick the landing spot, by forwarding the desired GPS coordinates. We hope to
+                            create a user-friendly
+                            way to access this feature.</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <h3>2.</h3>
+                    <h3>Achieve Long Range Two-way Communication</h3>
+                    <div class="text-left">
+                        <p>We believe that our focus on long range communication can be appreciated
+                            by many use-cases, especially in remote locations. Our
+                            goal is to ensure that our probe retains its basic functionality
+                            regardless of its immediate proximity to the ground
+                            control station (GCS).</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <h3>3.</h3>
+                    <h3>Achieve Versatility for Different Reaserch</h3>
+                    <div class="text-left">
+                        <p>Our plan is to create a baseline model which could be equipped
+                            with different main modules which would contain various
+                            sensors or apparatuses used for specific experiments such
+                            as: thermometer, humidity sensor, camera module, etc...
+                            Our goal is to support many experimental settings.</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <h3>4.</h3>
+                    <h3>Fulfill the Requirements of the Primary Mission</h3>
+                    <div class="text-left">
+                        <p>Besides being a given requirement, the
+                            Primary Mission serves as the baseline for many experi-
+                            ments that could be carried out with our version of the
+                            satellite and therefore it should be our goal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <footer>
-            <p></p>
+            <p>2025 Condor CanSat</p>
         </footer>
     </div>
 </body>
 
 <script>
-    
+    function parallax() {
+        var s = document.getElementById("earth-bg");
+        var yPos = 0 - window.pageYOffset / 35;
+        s.style.top = yPos + "%";
+
+    }
+
+    var scroll = 0;
+
+    window.addEventListener('scroll', () => {
+        parallax();
+
+        var scrollB4 = window.pageYOffset / (document.body.offsetHeight - window.innerHeight) - 0.2;
+        setTimeout(() => {
+            var scrollAfter = window.pageYOffset / (document.body.offsetHeight - window.innerHeight) - 0.2;
+
+            positiveScroll = Math.max(scrollAfter - scrollB4, 0);
+            scroll = Math.min(scroll + positiveScroll / 5, 0.99);
+
+            document.body.style.setProperty('--scroll', scroll);
+        }, 100);
+    }, false);
+
 </script>
 
 </html>
